@@ -1,0 +1,122 @@
+﻿@model IEnumerable<FarmGateDev.Models.Questions>
+
+@{
+    ViewData["Title"] = "EditQuestions";
+}
+
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+@{ var grouptext = "abc ";}
+@foreach (var item in Model)
+{
+    @if (grouptext != item.group)
+    {
+        grouptext = item.group;
+        <div class="grouplabel">@item.group</div>
+
+    }
+    <div class="questionborder">
+        <div class="form-group">
+            <label asp-for="@item.describe" class="control-label">@item.describe</label>
+            @*<input asp-for="@item.describe" class="form-control" />*@
+            <span asp-validation-for="@item.describe" class="text-danger"></span>
+        </div>
+        <div>
+            <div class="questionlabel">Selection</div>
+            <input asp-for="@item.selection" class="form-control" />
+            <span asp-validation-for="@item.selection" class="text-danger"></span>
+        </div>
+        <div>
+            <div class="questionlabel">Risk</div>
+            @if (item.riskflag.IndexOf("N") > -1)
+            {
+                <span>@Html.RadioButtonFor(modelItem => item.risk, "N/A")N/A</span>}
+            @if (item.riskflag.IndexOf("L") > -1)
+            {
+                <span>@Html.RadioButtonFor(modelItem => item.risk, "Low")Low</span>}
+            @if (item.riskflag.IndexOf("M") > -1)
+            {
+                <span>@Html.RadioButtonFor(modelItem => item.risk, "Medium")Medium</span>}
+            @if (item.riskflag.IndexOf("H") > -1)
+            {
+                <span>@Html.RadioButtonFor(modelItem => item.risk, "High")High</span>}
+
+            @*@Html.RadioButtonFor(modelItem => item.risk, "Low")Low
+                @Html.RadioButtonFor(modelItem => item.risk, "Medium")Medium
+                @Html.RadioButtonFor(modelItem => item.risk, "High")High*@
+        </div>
+        <div>
+            <span style="white-space: nowrap" ;>
+                @*<span class="questionlabel">Measure</span>*@
+                <label asp-for="@item.describe" class="questionlabel">Measure</label>
+                <input asp-for="@item.measure" class="form-control" />
+                <span asp-validation-for="@item.measure" class="text-danger"></span>
+            </span>
+        </div>
+        <div>
+            <div class="questionlabel">Residual Risk</div>
+            @if (item.residualflag.IndexOf("N") > -1)
+            {
+                <span>@Html.RadioButtonFor(modelItem => item.residual, "N/A")N/A</span>}
+            @if (item.residualflag.IndexOf("L") > -1)
+            {
+                <span>@Html.RadioButtonFor(modelItem => item.residual, "Low")Low</span>}
+            @if (item.residualflag.IndexOf("M") > -1)
+            {
+                <span>@Html.RadioButtonFor(modelItem => item.residual, "Medium")Medium</span>}
+            @if (item.residualflag.IndexOf("H") > -1)
+            {
+                <span>@Html.RadioButtonFor(modelItem => item.residual, "High")High</span>}
+        </div>
+    </div>
+    <br />
+
+}
+
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.describe)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.selection)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.risk)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.measure)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.residual)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.describe)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(modelItem => item.selection)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(modelItem => item.risk)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(modelItem => item.measure)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(modelItem => item.residual)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+

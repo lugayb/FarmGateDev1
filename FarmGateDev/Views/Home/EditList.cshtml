@@ -1,0 +1,47 @@
+﻿@using FarmGateDev.Models
+@model FarmGateDev.Models.CheckList
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditList">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="road" class="control-label">Road</label>
+                <input asp-for="road" class="form-control" />
+                <span asp-validation-for="road" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="council" class="control-label">Council</label>
+                <input asp-for="council" class="form-control" />
+                <span asp-validation-for="council" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lengthkm" class="control-label">Total length (km)</label>
+                <input asp-for="lengthkm" class="form-control" />
+                <span asp-validation-for="lengthkm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="accesslastdate" class="control-label">Date last assessed</label>
+                <input asp-for="accesslastdate" class="form-control" />
+                <span asp-validation-for="accesslastdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="assessor" class="control-label">Assessor</label>
+                <input asp-for="assessor" class="form-control" />
+                <span asp-validation-for="assessor" class="text-danger"></span>
+            </div>
+            @*@Html.Partial("EditQuestions", Model.questions)*@
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

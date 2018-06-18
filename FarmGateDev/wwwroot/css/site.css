@@ -1,0 +1,78 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+div.quest {
+    word-wrap: break-word;
+}
+
+div.questionborder {
+    border-style: solid;
+    border-width:thin;
+}
+
+.questionlabel {
+    font-weight:bold;
+    font-style:italic;
+}
+
+div.grouplabel {
+    font-weight:bolder;
+    font-size:large;
+    background: lightgray;
+}
+
+.question-control {
+    display: inline;
+    width: 100%;
+    height: @input-height-base;
+    // Make inputs at least the height of their button counterpart (base line-height + padding + border) padding: @padding-base-vertical @padding-base-horizontal;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    color: @input-color;
+    background-color: @input-bg;
+    background-image: none;
+    // Reset unusual Firefox-on-Android default style;
+    see https://github.com/necolas/normalize.css/issues/214 border: 1px solid @input-border;
+    border-radius: @input-border-radius    
+    // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS. .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+    .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+    // Customize the `:focus` state to imitate native WebKit styles. .form-control-focus();
+    // Placeholder .placeholder();
+    // Unstyle the caret on `<select>`s in IE10+. &::-ms-expand
+}
+
+
+
